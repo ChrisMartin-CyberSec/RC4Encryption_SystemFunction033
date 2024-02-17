@@ -115,7 +115,7 @@ BOOL exec_shellcode(USTRING shellcode)
 	// Copy payload to buffer
 	RtlMoveMemory(mem_buffer, shellcode.Buffer, shellcode.Length);
 
-	// Change permissions of new buffer
+	// Change permissions of new buffer (optional)
 	DWORD oldprotect{};
 	if (!VirtualProtect(mem_buffer, shellcode.Length, PAGE_EXECUTE_READ, &oldprotect))
 	{
